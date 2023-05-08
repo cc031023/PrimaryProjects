@@ -1,4 +1,4 @@
-#include "game.h"  // 自定义头文件.
+#include "game.h"  // 自定义的头文件.
 
 // 初始化棋盘.
 void InitBoard(char board[ROW][COL], int row, int col) {
