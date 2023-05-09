@@ -1,5 +1,4 @@
 #pragma once
-#define _CRT_SECURE_NO_WARNINGS 1
 
 #include <Windows.h>
 #include <stdio.h>
@@ -22,8 +21,8 @@ int IsWin(char board[ROW][COL], int row, int col);
 // 补充1: 判断落子是否合法.
 int CheckMove(char board[ROW][COL], int row, int col, int r, int l);
 
-// 补充2: 宣布胜利.
-void WhoWin(char winner);
-
-// 补充3: 判断这个位置的棋子能否赢.
+// 补充2: 判断这个位置的棋子能否赢.
 int CheckWin(char board[ROW][COL], int row, int col, int r, int l);
+
+// 补充3: 宣布胜利.
+void WhoWin(char winner);
