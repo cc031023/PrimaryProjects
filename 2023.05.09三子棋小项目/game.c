@@ -18,8 +18,8 @@ void DisplayBoard(char board[ROW][COL], int row, int col) {
         int j = 0;
         for (j = 0; j < col; ++j) {
             printf(" %c %c", board[i][j], "|\n"[j == col - 1]);
-        }  // j如果等于col -
-           // 1则表达式返回1访问这个字符串下标为1的换行,否则就是'|'.
+        }  // j如果等于col - 1.
+           // 则表达式返回1访问这个字符串下标为1的换行,否则就是'|'.
         if (i != row - 1) {
             for (j = 0; j < col; ++j) {
                 printf("%s%c", "---", "|\n"[j == col - 1]);
@@ -98,24 +98,7 @@ int CheckMove(char board[ROW][COL], int row, int col, int r, int l) {
         return 1;
 }
 
-// 补充2: 宣布胜利.
-void WhoWin(char winner) {
-    if (winner == ' ') {
-        printf("平局!\n");
-        system("pause");
-        system("cls");
-    } else if (winner == '*') {
-        printf("玩家获胜!\n");
-        system("pause");
-        system("cls");
-    } else {
-        printf("电脑获胜!\n");
-        system("pause");
-        system("cls");
-    }
-}
-
-// 补充3: 判断这个位置的棋子能否赢.
+// 补充2: 判断这个位置的棋子能否赢.
 int CheckWin(char board[ROW][COL], int row, int col, int r, int l) {
     int i = 0;
     char winner = board[r][l];  // 决定赢的那个棋子的属性.
@@ -152,4 +135,21 @@ int CheckWin(char board[ROW][COL], int row, int col, int r, int l) {
             return 1;
     }
     return 0;
+}
+
+// 补充3: 宣布胜利.
+void WhoWin(char winner) {
+    if (winner == ' ') {
+        printf("平局!\n");
+        system("pause");
+        system("cls");
+    } else if (winner == '*') {
+        printf("玩家获胜!\n");
+        system("pause");
+        system("cls");
+    } else {
+        printf("电脑获胜!\n");
+        system("pause");
+        system("cls");
+    }
 }
