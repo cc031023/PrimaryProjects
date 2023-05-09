@@ -21,7 +21,9 @@ void DisplayBoard(char board[ROW][COL], int row, int col) {
         }  // j如果等于col -
            // 1则表达式返回1访问这个字符串下标为1的换行,否则就是'|'.
         if (i != row - 1) {
-            printf("---|---|---\n");
+            for (j = 0; j < col; ++j) {
+                printf("%s%c", "---", "|\n"[j == col - 1]);
+            }
         }
     }
 }
@@ -101,12 +103,15 @@ void WhoWin(char winner) {
     if (winner == ' ') {
         printf("平局!\n");
         system("pause");
+        system("cls");
     } else if (winner == '*') {
         printf("玩家获胜!\n");
         system("pause");
+        system("cls");
     } else {
         printf("电脑获胜!\n");
         system("pause");
+        system("cls");
     }
 }
 
