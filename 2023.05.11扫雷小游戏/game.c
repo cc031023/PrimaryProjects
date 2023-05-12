@@ -79,9 +79,13 @@ void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col) {
         } else {
             printf("请输入标记雷坐标>:");
             scanf("%d%d", &x, &y);
+            printf("请输入标记的符号为:>");
+            getchar();  // 清除缓存区的换行符号.
+            char flag = '\0';
+            scanf("%c", &flag);
             // 判断是否越界.
             if (x >= 1 && x <= row && y >= 1 && y <= col) {
-                show[x][y] = '@';
+                show[x][y] = flag;
                 system("cls");
                 DisplayBoard(show, row, col);
             } else {
@@ -97,5 +101,7 @@ void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col) {
 // 获取周围雷的数量.
 int GetMineCount(char mine[ROWS][COLS], int x, int y) {
     // 周围的格子全部加上.
-    return (mine[x - 1][y] + mine[x - 1][y - 1] + mine[x][y - 1] + mine[x + 1][y - 1] + mine[x + 1][y] + mine[x + 1][y + 1] + mine[x][y + 1] + mine[x - 1][y + 1] - 8 * '0');
+    return (mine[x - 1][y] + mine[x - 1][y - 1] + mine[x][y - 1] +
+            mine[x + 1][y - 1] + mine[x + 1][y] + mine[x + 1][y + 1] +
+            mine[x][y + 1] + mine[x - 1][y + 1] - 8 * '0');
 }
